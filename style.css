@@ -68,7 +68,7 @@ body {
 }
 
 .numberButtonContainer,
-.miscButtons {
+.miscButtonContainer {
     display: flex;
     flex-wrap: wrap;
 }

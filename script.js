@@ -31,6 +31,7 @@ operatorButtons.addEventListener('click', event => {
     if (event.target.classList.contains('operatorButton')) {
         switch (event.target.innerText) {
             case '/':
+                division();
                 break;
             case 'X':
                 multiplication();
@@ -89,6 +90,21 @@ function multiplication() {
         calculator.isClear = false;
     } else {
         calculator.total = calculator.total * calculator.number;
+    }
+
+    calculator.number = '';
+    displayText.innerText = calculator.total;
+}
+
+function division() {
+    calculator.number = Number(calculator.number);
+    calculator.operator = '/';
+
+    if (calculator.isClear) {
+        calculator.total = calculator.number / 1;
+        calculator.isClear = false;
+    } else {
+        calculator.total = calculator.total / calculator.number;
     }
 
     calculator.number = '';

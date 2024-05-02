@@ -23,4 +23,3 @@ numberButtons.addEventListener('click', (event) => {
         return;
     }
 });
-

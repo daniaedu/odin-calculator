@@ -5,21 +5,43 @@ const numberButtons = document.querySelector('.numberButtonContainer');
 const operatorButtons = document.querySelector('.operatorButtonContainer');
 
 const calculator = {
-    initialMulDivTotal: 1,
     total: 0,
     number: '',
+    operator: '',
+    isEvalulate: false,
+    isClear: true,
     isDecimal: false,
 };
 
 // Event Handlers
 
 // Captures number input and prints it to display
-numberButtons.addEventListener('click', (event) => {
+numberButtons.addEventListener('click', event => {
     if (event.target.classList.contains('numberButton')) {
-        calculator.number += Number(event.target.innerText);
+        calculator.number += event.target.innerText;
         return displayText.innerText = calculator.number;
     }
     else {
         return;
     }
 });
+
+
+operatorButtons.addEventListener('click', event => {
+    if (event.target.classList.contains('operatorButton')) {
+        switch (event.target.innerText) {
+            case '/':
+                break;
+            case 'X':
+                break;
+            case '-':
+                break;
+            case '+':
+                break;
+        }
+    } else {
+        return;
+    }
+});
+
+

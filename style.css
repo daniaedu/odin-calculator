@@ -1,0 +1,79 @@
+/*****************************************************************
+                    Reset and Base Styles
+*****************************************************************/
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/*****************************************************************
+                     Calculator Container   
+*****************************************************************/
+.calculatorContainer {
+    margin: 0 auto;
+    background: grey;
+    border: 1px solid black;
+    height: 230px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*****************************************************************
+                     Display Container   
+*****************************************************************/
+.displayContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*****************************************************************
+                     Button Container   
+*****************************************************************/
+.buttonContainer{
+    border: 3px solid yellow;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+/*****************************************************************
+                    Left Section   
+*****************************************************************/
+
+.leftSection{
+    border: 5px solid green;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.numberButtonContainer {
+    display: flex;
+}
+
+/*****************************************************************
+                    Right Section   
+*****************************************************************/
+.rightSection {
+    border: 5px solid blue;
+    width: 100%;
+}
+
+.operatorButtonContainer {
+    display: flex;
+    flex-direction: column
+}

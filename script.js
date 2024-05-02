@@ -82,14 +82,17 @@ function subtraction() {
 }
 
 function multiplication() {
-    calculator.number = Number(calculator.number);
     calculator.operator = 'X';
 
-    if (calculator.isClear) {
-        calculator.total = calculator.number * 1;
+    if (!calculator.isClear && calculator.number === ''){
+        displayText.innerText = calculator.total;
+    } 
+    else if (calculator.isClear) {
+        calculator.total = Number(calculator.number) * 1;
         calculator.isClear = false;
+
     } else {
-        calculator.total = calculator.total * calculator.number;
+        calculator.total = calculator.total * Number(calculator.number);
     }
 
     calculator.number = '';
@@ -97,14 +100,17 @@ function multiplication() {
 }
 
 function division() {
-    calculator.number = Number(calculator.number);
     calculator.operator = '/';
 
-    if (calculator.isClear) {
-        calculator.total = calculator.number / 1;
+    if (!calculator.isClear && calculator.number === ''){
+        displayText.innerText = calculator.total;
+    } 
+    else if (calculator.isClear) {
+        calculator.total = Number(calculator.number) / 1;
         calculator.isClear = false;
+
     } else {
-        calculator.total = calculator.total / calculator.number;
+        calculator.total = calculator.total / Number(calculator.number);
     }
 
     calculator.number = '';

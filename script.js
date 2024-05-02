@@ -35,6 +35,7 @@ operatorButtons.addEventListener('click', event => {
             case 'X':
                 break;
             case '-':
+                subtraction();
                 break;
             case '+':
                 addition();
@@ -48,7 +49,7 @@ operatorButtons.addEventListener('click', event => {
 
 // Functions
 
-function addition () {
+function addition() {
     calculator.number = Number(calculator.number);
     calculator.operator = '+';
 
@@ -57,6 +58,21 @@ function addition () {
         calculator.isClear = false;
     } else {
         calculator.total = calculator.number + calculator.total;
+    }
+
+    calculator.number = '';
+    displayText.innerText = calculator.total;
+}
+
+function subtraction() {
+    calculator.number = Number(calculator.number);
+    calculator.operator = '-';
+
+    if (calculator.isClear) {
+        calculator.total = calculator.number - 0;
+        calculator.isClear = false;
+    } else {
+        calculator.total = calculator.total - calculator.number;
     }
 
     calculator.number = '';

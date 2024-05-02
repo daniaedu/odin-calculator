@@ -33,6 +33,7 @@ operatorButtons.addEventListener('click', event => {
             case '/':
                 break;
             case 'X':
+                multiplication();
                 break;
             case '-':
                 subtraction();
@@ -73,6 +74,21 @@ function subtraction() {
         calculator.isClear = false;
     } else {
         calculator.total = calculator.total - calculator.number;
+    }
+
+    calculator.number = '';
+    displayText.innerText = calculator.total;
+}
+
+function multiplication() {
+    calculator.number = Number(calculator.number);
+    calculator.operator = 'X';
+
+    if (calculator.isClear) {
+        calculator.total = calculator.number * 1;
+        calculator.isClear = false;
+    } else {
+        calculator.total = calculator.total * calculator.number;
     }
 
     calculator.number = '';

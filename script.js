@@ -49,6 +49,23 @@ operatorButtons.addEventListener('click', event => {
     return;
 });
 
+miscButtons.addEventListener('click', event => {
+    if (event.target.classList.contains('miscButton')) {
+        switch (event.target.innerText) {
+            case 'AC':
+                
+                break;
+            case '+/-':
+                
+                break;
+            case '%':
+                
+                break;
+        }
+    }
+})
+
+
 // Functions
 
 function addition() {

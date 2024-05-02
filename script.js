@@ -19,7 +19,7 @@ const calculator = {
 numberButtons.addEventListener('click', event => {
     if (event.target.classList.contains('numberButton')) {
         calculator.number += event.target.innerText;
-        return displayText.innerText = calculator.number;
+        return displayText.innerText = Number(calculator.number);
     }
     else {
         return;
@@ -56,7 +56,8 @@ miscButtons.addEventListener('click', event => {
                 resetCalculator();
                 break;
             case '+/-':
-                
+                calculator.number = Number(calculator.number) * -1;
+                displayText.innerText = calculator.number;
                 break;
             case '%':
                 

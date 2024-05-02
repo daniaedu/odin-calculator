@@ -37,11 +37,28 @@ operatorButtons.addEventListener('click', event => {
             case '-':
                 break;
             case '+':
+                addition();
                 break;
         }
     } else {
         return;
     }
+    return;
 });
 
+// Functions
 
+function addition () {
+    calculator.number = Number(calculator.number);
+    calculator.operator = '+';
+
+    if (calculator.isClear) {
+        calculator.total = calculator.number + 0;
+        calculator.isClear = false;
+    } else {
+        calculator.total = calculator.number + calculator.total;
+    }
+
+    calculator.number = '';
+    displayText.innerText = calculator.total;
+}

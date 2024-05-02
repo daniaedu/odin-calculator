@@ -53,7 +53,7 @@ miscButtons.addEventListener('click', event => {
     if (event.target.classList.contains('miscButton')) {
         switch (event.target.innerText) {
             case 'AC':
-                
+                resetCalculator();
                 break;
             case '+/-':
                 
@@ -131,5 +131,15 @@ function division() {
     }
 
     calculator.number = '';
+    displayText.innerText = calculator.total;
+}
+
+function resetCalculator() {
+    calculator.total = 0;
+    calculator.number = '';
+    calculator.operator = '';
+    calculator.isEvalulate = false;
+    calculator.isClear = true;
+    calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }

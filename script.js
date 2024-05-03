@@ -9,7 +9,7 @@ const calculator = {
     number: '',
     operator: '',
     isClear: true,
-    isEvalulate: false,
+    isOperate: false,
     isDecimal: false,
 };
 
@@ -145,7 +145,7 @@ function resetCalculator() {
     calculator.number = '';
     calculator.operator = '';
     calculator.isClear = true;
-    calculator.isEvalulate = false;
+    calculator.isOperate = false;
     calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }

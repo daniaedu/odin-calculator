@@ -139,14 +139,30 @@ function division() {
 
     calculator.number = '';
     calculator.isDecimal = false;
-    displayText.innerText = calculator.total;
+    calculator.total === Infinity || calculator.total === NaN ?
+        displayText.innerText = "over 9000" :
+        displayText.innerText = calculator.total;
+    
 }
 
 function operate() {
-    calculator.total = Number(calculator.number) + calculator.total;
-    displayText.innerText = calculator.total;
-    calculator.number = '';
-    calculator.isDecimal = false;
+    switch (calculator.operator) {
+        case '/':
+            division();
+            break;
+        case 'X':
+            multiplication();
+            break;
+        case '-':
+            subtraction();
+            break;
+        case '+':
+            addition();
+            break;
+    }
+    calculator.total === Infinity || calculator.total === NaN ?
+        displayText.innerText = "over 9000" :
+        displayText.innerText = calculator.total;
 }
 
 function resetCalculator() {
@@ -154,7 +170,6 @@ function resetCalculator() {
     calculator.number = '';
     calculator.operator = '';
     calculator.isClear = true;
-    calculator.isOperate = false;
     calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }

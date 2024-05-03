@@ -19,6 +19,7 @@ Known Glitches:
 Planned Improvements:
 
 - Fix logic for +/- button.
+- Implement logic to limit the number of digits allowed for input and the displayed result.
 - Handle multiple operators in sequence correctly (e.g., 9 * 9 - should calculate 81).
 - Allow for hitting equal sign multiple times to perform continuous calculations based on the last operation.
 - Improve variable and function names for better readability.

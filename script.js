@@ -11,6 +11,7 @@ const calculator = {
     isClear: true,
     isOperate: false,
     isDecimal: false,
+    isPercent: false,
 };
 
 // Event Handlers
@@ -48,7 +49,10 @@ operatorButtons.addEventListener('click', event => {
                 addition();
                 break;
         }
-    } else {
+    } else if (event.target.classList.contains('operateButton')) {
+        operate();
+        return;
+    }else {
         return;
     }
     return;
@@ -65,7 +69,7 @@ miscButtons.addEventListener('click', event => {
                 displayText.innerText = calculator.number;
                 break;
             case '%':
-
+                percent();
                 break;
         }
     }
@@ -140,6 +144,10 @@ function division() {
     displayText.innerText = calculator.total;
 }
 
+function operate() {
+    return;
+}
+
 function resetCalculator() {
     calculator.total = 0;
     calculator.number = '';
@@ -148,4 +156,31 @@ function resetCalculator() {
     calculator.isOperate = false;
     calculator.isDecimal = false;
     displayText.innerText = calculator.total;
+}
+
+function percent() {
+    calculator.isPercent = true;
+    if (calculator.number === '') {
+        calculator.total = Number(calculator.total) / 100;
+        displayText.innerText = calculator.total;
+    }
+    else {
+        calculator.number = Number(calculator.number) / 100;
+        displayText.innerText = calculator.number;
+        switch (calculator.operator) {
+            case '/':
+                division();
+                break;
+            case 'X':
+                multiplication();
+                break;
+            case '-':
+                subtraction();
+                break;
+            case '+':
+                addition();
+                break;
+        }
+    }
+    calculator.isPercent = false;
 }

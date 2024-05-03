@@ -8,8 +8,8 @@ const calculator = {
     total: 0,
     number: '',
     operator: '',
-    isEvalulate: false,
     isClear: true,
+    isEvalulate: false,
     isDecimal: false,
 };
 
@@ -19,11 +19,16 @@ const calculator = {
 numberButtons.addEventListener('click', event => {
     if (event.target.classList.contains('numberButton')) {
         calculator.number += event.target.innerText;
-        return displayText.innerText = Number(calculator.number);
+        displayText.innerText = Number(calculator.number);
+    }
+    else if (event.target.classList.contains('decimalButton') && calculator.isDecimal === false) {
+        calculator.isDecimal = true;
+        calculator.number += event.target.innerText;
     }
     else {
         return;
     }
+    return;
 });
 
 
@@ -60,12 +65,11 @@ miscButtons.addEventListener('click', event => {
                 displayText.innerText = calculator.number;
                 break;
             case '%':
-                
+
                 break;
         }
     }
 })
-
 
 // Functions
 
@@ -81,6 +85,7 @@ function addition() {
     }
 
     calculator.number = '';
+    calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }
 
@@ -96,6 +101,7 @@ function subtraction() {
     }
 
     calculator.number = '';
+    calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }
 
@@ -104,8 +110,7 @@ function multiplication() {
 
     if (!calculator.isClear && calculator.number === ''){
         displayText.innerText = calculator.total;
-    } 
-    else if (calculator.isClear) {
+    } else if (calculator.isClear) {
         calculator.total = Number(calculator.number) * 1;
         calculator.isClear = false;
 
@@ -114,6 +119,7 @@ function multiplication() {
     }
 
     calculator.number = '';
+    calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }
 
@@ -122,16 +128,15 @@ function division() {
 
     if (!calculator.isClear && calculator.number === ''){
         displayText.innerText = calculator.total;
-    } 
-    else if (calculator.isClear) {
+    } else if (calculator.isClear) {
         calculator.total = Number(calculator.number) / 1;
         calculator.isClear = false;
-
     } else {
         calculator.total = calculator.total / Number(calculator.number);
     }
 
     calculator.number = '';
+    calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }
 
@@ -139,8 +144,8 @@ function resetCalculator() {
     calculator.total = 0;
     calculator.number = '';
     calculator.operator = '';
-    calculator.isEvalulate = false;
     calculator.isClear = true;
+    calculator.isEvalulate = false;
     calculator.isDecimal = false;
     displayText.innerText = calculator.total;
 }

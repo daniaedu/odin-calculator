@@ -9,9 +9,7 @@ const calculator = {
     number: '',
     operator: '',
     isClear: true,
-    isOperate: false,
     isDecimal: false,
-    isPercent: false,
 };
 
 // Event Handlers
@@ -145,7 +143,10 @@ function division() {
 }
 
 function operate() {
-    return;
+    calculator.total = Number(calculator.number) + calculator.total;
+    displayText.innerText = calculator.total;
+    calculator.number = '';
+    calculator.isDecimal = false;
 }
 
 function resetCalculator() {
@@ -159,7 +160,6 @@ function resetCalculator() {
 }
 
 function percent() {
-    calculator.isPercent = true;
     if (calculator.number === '') {
         calculator.total = Number(calculator.total) / 100;
         displayText.innerText = calculator.total;
@@ -182,5 +182,4 @@ function percent() {
                 break;
         }
     }
-    calculator.isPercent = false;
 }
